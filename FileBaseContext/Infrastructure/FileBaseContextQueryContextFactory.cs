@@ -1,9 +1,9 @@
-﻿using kDg.FileBaseContext.Extensions;
-using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Extensions;
+using FileBaseContext.Storage;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace kDg.FileBaseContext.Infrastructure;
+namespace FileBaseContext.Infrastructure;
 
 public class FileBaseContextQueryContextFactory : IQueryContextFactory
 {

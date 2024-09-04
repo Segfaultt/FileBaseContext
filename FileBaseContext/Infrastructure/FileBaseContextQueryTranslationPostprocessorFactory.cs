@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 
-namespace kDg.FileBaseContext.Infrastructure;
+namespace FileBaseContext.Infrastructure;
 
 public class FileBaseContextQueryTranslationPostprocessorFactory : IQueryTranslationPostprocessorFactory
 {

@@ -1,6 +1,6 @@
 ﻿using System.IO.Abstractions.TestingHelpers;
 using FileBaseContext.Tests.Data.Entities;
-using kDg.FileBaseContext.Extensions;
+using FileBaseContext.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace FileBaseContext.Tests.Data;

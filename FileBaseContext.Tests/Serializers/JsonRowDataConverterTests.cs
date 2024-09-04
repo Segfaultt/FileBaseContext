@@ -1,4 +1,4 @@
-﻿using kDg.FileBaseContext.Serializers;
+﻿using FileBaseContext.Serializers;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Json;

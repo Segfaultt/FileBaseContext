@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace kDg.FileBaseContext.Serializers;
+namespace FileBaseContext.Serializers;
 
 public class JsonRowDataSerializer : IRowDataSerializer
 {

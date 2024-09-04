@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace kDg.FileBaseContext.Serializers;
+namespace FileBaseContext.Serializers;
 
 public static class RowDataSerializerExtentions
 {

@@ -1,10 +1,10 @@
-﻿using kDg.FileBaseContext.Extensions;
+﻿using FileBaseContext.Extensions;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Update;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public class FileBaseContextDatabase : Database, IFileBaseContextDatabase
 {

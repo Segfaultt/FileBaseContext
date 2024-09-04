@@ -1,4 +1,4 @@
-﻿using kDg.FileBaseContext.Extensions;
+﻿using FileBaseContext.Extensions;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Query;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using ExpressionExtensions = Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions;
 
-namespace kDg.FileBaseContext.Infrastructure.Query;
+namespace FileBaseContext.Infrastructure.Query;
 
 public partial class FileBaseContextShapedQueryCompilingExpressionVisitor
 {

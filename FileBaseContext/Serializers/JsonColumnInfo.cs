@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace kDg.FileBaseContext.Serializers
+namespace FileBaseContext.Serializers
 {
     internal sealed record JsonColumnInfo(
         string ColumnName,

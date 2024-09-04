@@ -1,4 +1,4 @@
-﻿namespace kDg.FileBaseContext.Storage;
+﻿namespace FileBaseContext.Storage;
 
 public class FileBaseContextScopedOptions : IFileBaseContextScopedOptions
 {

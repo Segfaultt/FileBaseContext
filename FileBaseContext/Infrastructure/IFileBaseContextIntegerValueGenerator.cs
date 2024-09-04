@@ -1,4 +1,4 @@
-﻿namespace kDg.FileBaseContext.Infrastructure;
+﻿namespace FileBaseContext.Infrastructure;
 
 public interface IFileBaseContextIntegerValueGenerator
 {

@@ -1,10 +1,10 @@
-﻿using kDg.FileBaseContext.Extensions;
-using kDg.FileBaseContext.Serializers;
-using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Extensions;
+using FileBaseContext.Serializers;
+using FileBaseContext.Storage;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace kDg.FileBaseContext.Infrastructure;
+namespace FileBaseContext.Infrastructure;
 
 public class FileBaseContextOptionsExtension : IDbContextOptionsExtension
 {

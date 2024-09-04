@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public interface IFileBaseContextDatabase : IDatabase
 {

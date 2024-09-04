@@ -1,9 +1,9 @@
-﻿using kDg.FileBaseContext.Infrastructure;
+﻿using FileBaseContext.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace kDg.FileBaseContext.Extensions;
+namespace FileBaseContext.Extensions;
 
 public static class FileBaseContextDbContextOptionsExtensions
 {

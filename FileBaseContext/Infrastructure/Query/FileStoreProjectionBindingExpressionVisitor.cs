@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
-namespace kDg.FileBaseContext.Infrastructure.Query;
+namespace FileBaseContext.Infrastructure.Query;
 
 public class FileBaseContextProjectionBindingExpressionVisitor : ExpressionVisitor
 {

@@ -1,8 +1,8 @@
-﻿using kDg.FileBaseContext.Infrastructure;
+﻿using FileBaseContext.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Update;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public interface IFileBaseContextTable
 {

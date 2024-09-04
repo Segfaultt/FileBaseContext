@@ -1,4 +1,4 @@
-using kDg.FileBaseContext.Extensions;
+using FileBaseContext.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using ExpressionExtensions = Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions;
 
-namespace kDg.FileBaseContext.Infrastructure.Query;
+namespace FileBaseContext.Infrastructure.Query;
 
 public class FileBaseContextExpressionTranslatingExpressionVisitor : ExpressionVisitor
 {

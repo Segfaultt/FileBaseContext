@@ -1,8 +1,8 @@
-﻿using kDg.FileBaseContext.Infrastructure;
-using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Infrastructure;
+using FileBaseContext.Storage;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace kDg.FileBaseContext.Extensions;
+namespace FileBaseContext.Extensions;
 
 public static class FileBaseContextCacheExtensions
 {

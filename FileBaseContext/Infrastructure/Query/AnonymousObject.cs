@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace kDg.FileBaseContext.Infrastructure.Query;
+namespace FileBaseContext.Infrastructure.Query;
 
 public readonly struct AnonymousObject
 {

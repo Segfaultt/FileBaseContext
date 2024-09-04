@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using kDg.FileBaseContext.Serializers;
+using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;

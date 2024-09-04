@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace kDg.FileBaseContext.Infrastructure;
+namespace FileBaseContext.Infrastructure;
 
 public class FileBaseContextTypeMapping : CoreTypeMapping
 {

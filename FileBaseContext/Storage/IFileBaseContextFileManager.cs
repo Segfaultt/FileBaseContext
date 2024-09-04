@@ -1,7 +1,7 @@
-﻿using kDg.FileBaseContext.Serializers;
+﻿using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public interface IFileBaseContextFileManager
 {

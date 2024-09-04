@@ -1,9 +1,9 @@
-﻿using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Storage;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System.Diagnostics.CodeAnalysis;
 
-namespace kDg.FileBaseContext.Infrastructure
+namespace FileBaseContext.Infrastructure
 {
     internal sealed class FileContextBaseValueGeneratorSelector(
         ValueGeneratorSelectorDependencies dependencies,

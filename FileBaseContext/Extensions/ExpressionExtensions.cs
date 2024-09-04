@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace kDg.FileBaseContext.Extensions;
+namespace FileBaseContext.Extensions;
 
 public static class ExpressionExtensions
 {

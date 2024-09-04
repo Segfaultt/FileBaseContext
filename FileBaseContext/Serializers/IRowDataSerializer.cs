@@ -1,4 +1,4 @@
-﻿namespace kDg.FileBaseContext.Serializers;
+﻿namespace FileBaseContext.Serializers;
 
 public interface IRowDataSerializer
 {

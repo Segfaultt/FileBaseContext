@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace kDg.FileBaseContext.Serializers;
+namespace FileBaseContext.Serializers;
 
 internal class CsvRowDataSerializerFactory : IRowDataSerializerFactory
 {

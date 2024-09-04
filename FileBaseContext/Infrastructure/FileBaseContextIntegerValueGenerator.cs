@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System.Globalization;
 
-namespace kDg.FileBaseContext.Infrastructure;
+namespace FileBaseContext.Infrastructure;
 
 public class FileBaseContextIntegerValueGenerator<TValue> : ValueGenerator<TValue>, IFileBaseContextIntegerValueGenerator
 {

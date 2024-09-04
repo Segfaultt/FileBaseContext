@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
-using kDg.FileBaseContext.Extensions;
-using kDg.FileBaseContext.Serializers;
+using FileBaseContext.Extensions;
+using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 

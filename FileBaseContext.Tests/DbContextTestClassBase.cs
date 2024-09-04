@@ -1,5 +1,5 @@
-﻿using kDg.FileBaseContext.Extensions;
-using kDg.FileBaseContext.Infrastructure;
+﻿using FileBaseContext.Extensions;
+using FileBaseContext.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions.TestingHelpers;

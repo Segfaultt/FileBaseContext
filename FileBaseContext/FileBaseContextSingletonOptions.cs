@@ -1,7 +1,7 @@
-﻿using kDg.FileBaseContext.Infrastructure;
+﻿using FileBaseContext.Infrastructure;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace kDg.FileBaseContext;
+namespace FileBaseContext;
 
 public class FileBaseContextSingletonOptions : IFileBaseContextSingletonOptions
 {

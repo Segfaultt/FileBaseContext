@@ -1,6 +1,6 @@
-﻿using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Storage;
 
-namespace kDg.FileBaseContext;
+namespace FileBaseContext;
 
 public interface IFileBaseContextStoreCache
 {

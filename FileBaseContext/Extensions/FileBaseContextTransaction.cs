@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 
-namespace kDg.FileBaseContext.Extensions;
+namespace FileBaseContext.Extensions;
 
 public class FileBaseContextTransaction : IDbContextTransaction
 {

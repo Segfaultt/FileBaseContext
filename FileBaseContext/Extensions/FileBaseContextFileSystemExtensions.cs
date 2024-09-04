@@ -3,7 +3,7 @@ using System.IO.Abstractions.TestingHelpers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace kDg.FileBaseContext.Extensions;
+namespace FileBaseContext.Extensions;
 
 public static class FileBaseContextFileSystemExtensions
 {

@@ -1,6 +1,6 @@
-﻿using kDg.FileBaseContext.Infrastructure;
-using kDg.FileBaseContext.Infrastructure.Query;
-using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Infrastructure;
+using FileBaseContext.Infrastructure.Query;
+using FileBaseContext.Storage;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace kDg.FileBaseContext.Extensions;
+namespace FileBaseContext.Extensions;
 
 public static class FileBaseContextServiceCollectionExtensions
 {

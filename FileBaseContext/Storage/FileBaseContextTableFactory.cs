@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Reflection;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public class FileBaseContextTableFactory : IFileBaseContextTableFactory
 {

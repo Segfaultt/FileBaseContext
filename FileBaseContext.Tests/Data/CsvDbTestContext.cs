@@ -1,7 +1,7 @@
 ﻿using System.IO.Abstractions.TestingHelpers;
 using FileBaseContext.Tests.Data.Entities;
-using kDg.FileBaseContext.Extensions;
-using kDg.FileBaseContext.Serializers;
+using FileBaseContext.Extensions;
+using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore;
 
 namespace FileBaseContext.Tests.Data;

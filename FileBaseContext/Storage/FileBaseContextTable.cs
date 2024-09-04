@@ -1,5 +1,5 @@
-﻿using kDg.FileBaseContext.Infrastructure;
-using kDg.FileBaseContext.Serializers;
+﻿using FileBaseContext.Infrastructure;
+using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -10,7 +10,7 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public class FileBaseContextTable<TKey> : IFileBaseContextTable
 {

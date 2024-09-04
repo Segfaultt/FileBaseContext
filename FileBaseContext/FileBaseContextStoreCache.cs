@@ -1,7 +1,7 @@
-﻿using kDg.FileBaseContext.Storage;
+﻿using FileBaseContext.Storage;
 using System.Collections.Concurrent;
 
-namespace kDg.FileBaseContext;
+namespace FileBaseContext;
 
 public class FileBaseContextStoreCache : IFileBaseContextStoreCache
 {

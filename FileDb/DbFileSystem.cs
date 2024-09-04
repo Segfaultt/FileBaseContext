@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using kDg.FileBaseContext.Extensions;
+using FileBaseContext.Extensions;
 
 namespace FileDb
 {

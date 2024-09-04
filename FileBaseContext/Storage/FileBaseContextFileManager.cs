@@ -1,10 +1,10 @@
-﻿using kDg.FileBaseContext.Serializers;
+﻿using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.IO.Abstractions;
 using System.Text;
 
-namespace kDg.FileBaseContext.Storage;
+namespace FileBaseContext.Storage;
 
 public class FileBaseContextFileManager : IFileBaseContextFileManager
 {

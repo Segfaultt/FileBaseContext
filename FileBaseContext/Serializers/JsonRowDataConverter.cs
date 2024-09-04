@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace kDg.FileBaseContext.Serializers
+namespace FileBaseContext.Serializers
 {
     internal sealed class JsonRowDataConverter(
         IEnumerable<JsonColumnInfo> columns)
