@@ -2,11 +2,18 @@
 
 **FileBaseContext** is a provider of **Entity Framework Core 8** to store database information in files. 
 
-It was built for development purposes. All information is stored in files that can be added, updated, or deleted manually.
+Powerful file based database provider for Entity Framework Core, easy 'Serverless' file system text file serialised ef db persistance
+
+Works for
+- Unit Test - Mocking
+- Serverless db persistance, easier than Sqlite (Tables are created for one thing)
+- Works cross platform, easy offline persistant data store
+      
+Although it was built for development purposes, it works for serverless db persistance. All information is stored in files that can be added, updated, or deleted manually via file system.
 
 ## Benefits
-
-- you don't need a database
+- Easier than Sqlite, just works 
+- you don't need a database server
 - rapid modeling
 - version control supported
 - supports all serializable .NET types-
