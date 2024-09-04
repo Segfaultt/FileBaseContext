@@ -2,7 +2,10 @@
 
 **FileBaseContext** is a provider of **Entity Framework Core 8** to store database information in files. 
 
-It was built for development purposes. All information is stored in files that can be added, updated, or deleted manually.
+
+It can be used with Although it was built for development purposes. 
+
+All information is stored in files that can be added, updated, or deleted manually.
 
 ## Benefits
 
@@ -27,6 +30,9 @@ services.AddDbContext<ApplicationDbContext>(options => options.UseFileBaseContex
 or configure the database context itself
 
 ```cs
+
+public static string DatabaseName = "my_local_db"; // Will create folder  \bin\my_local_db and tables.json files
+
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
 	optionsBuilder.UseFileStoreDatabase("my_local_db");
@@ -38,7 +44,10 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 ##### Named database 
 ```cs
-optionsBuilder.UseFileBaseContextDatabase(databaseName: "my_local_db");
+ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseFileBaseContextDatabase(databaseName: DatabaseName); 
+    }
 ```
 
 ##### Custom location
