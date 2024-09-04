@@ -144,7 +144,14 @@ internal class FileBaseContextStore : IFileBaseContextStore
                 }
                 else
                 {
-                    throw new InvalidOperationException($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate pKey name [{key}]");
+                    if (Debugger.IsAttached)
+                    {
+                       Debug.WriteLine($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate pKey name [{key}]");
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate pKey name [{key}]");
+                    }
                 }
             }
         }
