@@ -1,27 +1,86 @@
 ﻿using System.Globalization;
-using System.IO.Abstractions.TestingHelpers;
-using FileBaseContext.Tests.Data;
-using FileBaseContext.Tests.Data.Entities;
+
 using Microsoft.EntityFrameworkCore;
 
-namespace FileBaseContext.Example;
+
+using FileDb;
+
 
 internal class Program
 {
+
     private static void Main()
     {
-        MockFileSystem fileSystem = new();
+          try
+        {
 
-        DbTestContext db = new(fileSystem);
-        _ = db.ContentEntries.FirstOrDefault();
+            DbFileSystem db = new DbFileSystem();
 
-        DbTestContext.InitDb(db);
+            Console.WriteLine("Initializing database...");
+            DbFileSystem.InitDb(db);
 
-        db.Contents.Load();
-        db.Users.Load();
-        User? user = db.Users.FirstOrDefault() ?? throw new NullReferenceException();
+            Console.WriteLine("Loading contents...");
+            db.Contents.Load();
+            db.Users.Load();
 
-        user.Name = "changed name - " + DateTime.Now.ToString(CultureInfo.InvariantCulture);
-        db.SaveChanges();
+            User? user = db.Users.FirstOrDefault();
+            if(user == null)
+            {
+                Console.WriteLine("No user found in the database.");
+                return;
+            }
+
+            Console.WriteLine($"User found: {user.Name}");
+            user.Name = "changed name - " + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            db.SaveChanges();
+            Console.WriteLine("User name updated successfully.");
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+        
     }
+
+ 
+
+
+    //private static void TestDbMockFileSystem()
+    //{
+    //    try
+    //    {
+    //        MockFileSystem fileSystem = new();
+    //        DbTestContext db = new(fileSystem);
+
+    //        Console.WriteLine("Initializing database...");
+    //        DbTestContext.InitDb(db);
+
+    //        Console.WriteLine("Loading contents...");
+    //        db.Contents.Load();
+    //        db.Users.Load();
+
+    //        User? user = db.Users.FirstOrDefault();
+    //        if(user == null)
+    //        {
+    //            Console.WriteLine("No user found in the database.");
+    //            return;
+    //        }
+
+    //        Console.WriteLine($"User found: {user.Name}");
+    //        user.Name = "changed name - " + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+    //        db.SaveChanges();
+    //        Console.WriteLine("User name updated successfully.");
+
+    //        Console.WriteLine("Press any key to exit...");
+    //        Console.ReadKey();
+    //    }
+    //    catch(Exception ex)
+    //    {
+    //        Console.WriteLine($"An error occurred: {ex.Message}");
+    //    }
+    //}
 }
+

@@ -16,6 +16,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FileBaseContext.Tests\FileBaseContext.Tests.csproj" />
 		<ProjectReference Include="..\FileBaseContext\FileBaseContext.csproj" />
+		<ProjectReference Include="..\FileDb\FileDb.csproj" />
 	</ItemGroup>
 
 </Project>

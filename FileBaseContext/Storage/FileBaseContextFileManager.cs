@@ -25,10 +25,15 @@ public class FileBaseContextFileManager : IFileBaseContextFileManager
             ? _fileSystem.Path.Combine(AppContext.BaseDirectory, _databasename)
             : _location;
 
-        _fileSystem.Directory.CreateDirectory(path);
+        // Ensure the directory exists
+        if(!_fileSystem.Directory.Exists(path.ToLower()))
+        {
+            _fileSystem.Directory.CreateDirectory(path);
+        }
 
         return _fileSystem.Path.Combine(path, name + serializer.FileExtension);
     }
+
 
     public void Init(IFileBaseContextScopedOptions options)
     {
