@@ -1,4 +1,18 @@
-# FileBaseContext
+## EntityFramework.Filesystem 
+
+FileBaseContext is a EntityFramework.Filesystem Provider for Net8+
+
+Store tables in file, easy 'Serverless' file system text file serialised ef db persistance
+
+https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli
+
+Similar projects : 
+
+## FileContextCore - Offers Different serializer supported (XML, JSON, CSV, Excel) no support Net4+
+https://github.com/morrisjdev/FileContextCore
+https://www.nuget.org/packages/FileContextCore/
+Frameworks based on the idea of FileContext by DevMentor (https://github.com/pmizel/DevMentor.Context.FileContext)
+
 
 **FileBaseContext** is a provider of **Entity Framework Core 8** to store database information in files. 
 
@@ -25,7 +39,9 @@ All information is stored in files that can be added, updated, or deleted manual
 
 ## Download
 
-https://www.nuget.org/packages/FileBaseContext/
+
+
+https://www.nuget.org/packages/EntityFramework.Filesystem/
 
 ## Configure Database Context
 
