@@ -59,8 +59,7 @@ public static string DatabaseName = "my_local_db"; // Will create folder  \bin\m
 
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
-	optionsBuilder.UseFileStoreDatabase("my_local_db");
-	base.OnConfiguring(optionsBuilder);
+    optionsBuilder.UseFileBaseContextDatabase(databaseName: DatabaseName); 
 }
 ```
 
