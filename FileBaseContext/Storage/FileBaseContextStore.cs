@@ -130,16 +130,9 @@ internal class FileBaseContextStore : IFileBaseContextStore
     public IReadOnlyList<FileBaseContextTableSnapshot> GetTables(IEntityType entityType)
     {
         var data = new List<FileBaseContextTableSnapshot>();
-        bool debugEnabled = true; // Local flag to control debug information
 
         lock (_lock)
         {
-            if (debugEnabled)
-            {
-                Debug.WriteLine($"<INFO> Starting GetTables for EntityType: {entityType.Name}");
-                Debug.WriteLine($"<INFO> Initial _tables count: {_tables?.Count ?? 0}");
-            }
-
             foreach (var et in entityType.GetDerivedTypesInclusive().Where(et => !et.IsAbstract()))
             {
                 var table = EnsureTable(et);
@@ -148,23 +141,11 @@ internal class FileBaseContextStore : IFileBaseContextStore
                 if (!_tables.ContainsKey(key))
                 {
                     data.Add(new FileBaseContextTableSnapshot(et, table.SnapshotRows()));
-                    if (debugEnabled)
-                    {
-                        Debug.WriteLine($"<INFO> Added EntityType: {et.Name}, Current data count: {data.Count}");
-                    }
                 }
                 else
                 {
-                    if (debugEnabled)
-                    {
-                        Debug.WriteLine($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate PK Key name [{key}]");
-                    }
+                    throw new InvalidOperationException($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate pKey name [{key}]");
                 }
-            }
-
-            if (debugEnabled)
-            {
-                Debug.WriteLine($"<INFO> Final data count: {data.Count}");
             }
         }
 
