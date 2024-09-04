@@ -7,15 +7,14 @@ namespace FileBaseContext.Tests.Data;
 
 public class DbTestContext : DbContext
 {
-    public const string DatabaseName = "my_local_db";
-
-    private readonly MockFileSystem _fileSystem;
+    public static string DatabaseName = "my_local_db";
 
     public DbTestContext(MockFileSystem fileSystem)
     {
-        _fileSystem = fileSystem;
     }
-
+    public DbTestContext()
+    {
+    }
     public DbSet<ContentEntry> ContentEntries { get; set; }
     public DbSet<Content> Contents { get; set; }
     public DbSet<GenericTest<int>> Generics { get; set; }
@@ -24,13 +23,12 @@ public class DbTestContext : DbContext
     public DbSet<SimpleEntity> SimpleEntities { get; set; }
     public DbSet<User> Users { get; set; }
 
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseFileBaseContextDatabase(DatabaseName, null, services =>
-        {
-            services.AddMockFileSystem(_fileSystem);
-        });
+        optionsBuilder.UseFileBaseContextDatabase(databaseName: DatabaseName); 
     }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

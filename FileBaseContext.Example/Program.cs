@@ -1,10 +1,8 @@
 ﻿using System.Globalization;
 
 using Microsoft.EntityFrameworkCore;
-
-
-using FileDb;
-
+using FileBaseContext.Tests.Data.Entities;
+using FileBaseContext.Tests.Data;
 
 internal class Program
 {
@@ -13,11 +11,11 @@ internal class Program
     {
           try
         {
-
-            DbFileSystem db = new DbFileSystem();
+            //Writing to File System :)
+            DbTestContext db = new DbTestContext();
 
             Console.WriteLine("Initializing database...");
-            DbFileSystem.InitDb(db);
+            DbTestContext.InitDb(db);
 
             Console.WriteLine("Loading contents...");
             db.Contents.Load();
