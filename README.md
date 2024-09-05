@@ -1,5 +1,9 @@
 ## EntityFramework.Filesystem 
 
+
+Published as **NUGET** package https://www.nuget.org/packages/EntityFilesystem 
+
+
 FileBaseContext is a EntityFramework.Filesystem Provider for Net8+
 
 Store tables in file, easy 'Serverless' file system text file serialised ef db persistance
