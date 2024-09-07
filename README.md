@@ -38,11 +38,6 @@ Created with [Entity Framework Visual Editor Extension](https://marketplace.visu
  - [Ex4_ModelInvoice](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex4_ModelInvoice)
  - [Ex5_Course](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex5_Course)
  - [Ex6_Mvp](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex6_Mvp)
- - [Ex7_Client_Desktop](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex7_Client_Desktop)
- - [Ex7_DAL](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex7_DAL)
- - [Ex7_WebApi](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex7_WebApi)
- - [Ex8_DAL_Multiuser](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex8_DAL_Multiuser)
- - [Ex8_EF_WebApi_SigR](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex8_EF_WebApi_SigR)
    
 [https://github.com/Opzet/EFDesignerExamples](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore)
 
