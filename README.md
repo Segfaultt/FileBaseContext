@@ -1,7 +1,15 @@
-# EntityFramework.Filesystem 
+# EntityFilesystem
+An EntityFramework Filesystem Provider
+
+Adds the ability to store information in files instead of being limited to databases.
 
 FileBaseContext is a EntityFramework Filesystem Provider for Net8+
 
+Works for
+- Unit Test - Mocking
+- Serverless db persistance, easier than Sqlite (Tables are created for one thing)
+- Works cross platform, easy offline persistant data store
+  
 ## Usage
 
 Install nuget package **EntityFilesystem**
@@ -60,31 +68,8 @@ Store tables in file, easy 'Serverless' file system text file serialised ef db p
 - unit tests
 
 
-## Similar projects : 
-
-### File system Entity Frameworks Providers
-Derived from FileContext by DevMentor (https://github.com/pmizel/DevMentor.Context.FileContext)
-
-### FileContextCore
-Offers Different serializer supported (XML, JSON, CSV, Excel) 
- https://github.com/morrisjdev/FileContextCore
- https://www.nuget.org/packages/FileContextCore/
-
-**FileBaseContext** is a provider of **Entity Framework Core 8** to store database information in files. 
-
-Powerful file based database provider for Entity Framework Core, easy 'Serverless' file system text file serialised ef db persistance
-
-Works for
-- Unit Test - Mocking
-- Serverless db persistance, easier than Sqlite (Tables are created for one thing)
-- Works cross platform, easy offline persistant data store
-      
-Although it was built for development purposes, it works for serverless db persistance. 
-
-All db information is stored in local files that can be added, updated, or deleted manually via normal file system.
-
 ## Configure Provider
-
+Powerful file based database provider for Entity Framework Core, easy 'Serverless' file system text file serialised ef db persistance
 ##### Named database 
 ```cs
  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -115,5 +100,26 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     });
 }
 ```
-Please find example in the SimplePositiveTests class in the test project
+## History / Forks
+
+File system Entity Frameworks Providers
+
+### a. FileContext by DevMentor 
+https://github.com/pmizel/DevMentor.Context.FileContext
+Core 2+ 
+
+### b. FileContextCore by morrisjdev
+https://github.com/morrisjdev/FileContextCore
+Offers Different serializer supported (XML, JSON, CSV, Excel) 
+Core 2/3 - last update Aug 2, 2020
+
+### c. FileBaseContext by dualbios
+https://github.com/dualbios/FileBaseContext
+FileBaseContext is a provider of Entity Framework Core 8 to store database information in files. 
+[Current developement: forked from this, adjusted namespace, tweaks, published nuget and added examples] 
+Core 8+ 
+
+
+
+
 
