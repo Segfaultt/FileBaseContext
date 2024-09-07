@@ -24,14 +24,7 @@ using FileBaseContext.Extensions;
 
 partial void CustomInit(DbContextOptionsBuilder optionsBuilder)
 {
-
-    if (HasSchemaChanged())
-    {
-        DeleteOldStore();
-        SaveCurrentSchemaVersion();
-    }
-
-    optionsBuilder.UseFileBaseContextDatabase(databaseName: "folderDbName);
+    optionsBuilder.UseFileBaseContextDatabase(databaseName: "DbFolderName");
 }
 ```
 
