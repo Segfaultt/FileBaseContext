@@ -1,74 +1,64 @@
-## EntityFramework.Filesystem 
+# EntityFilesystem
+An EntityFramework Filesystem Provider
 
+Adds the ability to store information in files instead of being limited to databases.
 
-Published as **NUGET** package https://www.nuget.org/packages/EntityFilesystem 
-
-
-FileBaseContext is a EntityFramework.Filesystem Provider for Net8+
-
-Store tables in file, easy 'Serverless' file system text file serialised ef db persistance
-
-https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli
-
-Similar projects : 
-
-## FileContextCore - Offers Different serializer supported (XML, JSON, CSV, Excel) no support Net4+
-https://github.com/morrisjdev/FileContextCore
-https://www.nuget.org/packages/FileContextCore/
-Frameworks based on the idea of FileContext by DevMentor (https://github.com/pmizel/DevMentor.Context.FileContext)
-
-
-**FileBaseContext** is a provider of **Entity Framework Core 8** to store database information in files. 
-
-Powerful file based database provider for Entity Framework Core, easy 'Serverless' file system text file serialised ef db persistance
+FileBaseContext is a EntityFramework Filesystem Provider for Net8+
 
 Works for
 - Unit Test - Mocking
 - Serverless db persistance, easier than Sqlite (Tables are created for one thing)
 - Works cross platform, easy offline persistant data store
-      
-Although it was built for development purposes, it works for serverless db persistance. All information is stored in files that can be added, updated, or deleted manually via file system.
+  
+## Usage
 
-It can be used with Although it was built for development purposes. 
+Install nuget package **EntityFilesystem**
+```csharp
+PM> Install-Package Microsoft.EntityFrameworkCore
+PM> Install-Package EntityFilesystem
+```
 
-All information is stored in files that can be added, updated, or deleted manually.
+```csharp
+// DbStartup.cs
+using FileBaseContext.Extensions;
+
+partial void CustomInit(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseFileBaseContextDatabase(databaseName: "DbFolderName");
+}
+```
+
+## Examples 
+
+Created with [Entity Framework Visual Editor Extension](https://marketplace.visualstudio.com/items?itemName=michaelsawczyn.EFDesigner2022) from Visual Studio Marketplace
+
+ - [Ex1_ModelPerson](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex1_ModelPerson)
+ - [Ex2_ModelOne2One](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex2_ModelOne2One)
+ - [Ex3_ModelOnetoMany](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex3_ModelOnetoMany)
+ - [Ex4_ModeManytoMany](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex4_ModeManytoMany)
+ - [Ex5_ModelInvoice](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex5_ModelInvoice)
+ - [Ex6_Course](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex6_Course)
+ - [Ex7_Mvp](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore/Ex7_Mvp)
+   
+[https://github.com/Opzet/EFDesignerExamples](https://github.com/Opzet/EFDesignerExamples/tree/main/EFCore)
+
+**NUGET** package https://www.nuget.org/packages/EntityFilesystem 
+
+https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli
 
 ## Benefits
+Store tables in file, easy 'Serverless' file system text file serialised ef db persistance
+
 - Easier than Sqlite, just works 
 - you don't need a database server
 - rapid modeling
 - version control supported
-- supports all serializable .NET types-
+- supports all serializable .NET types
 - unit tests
 
-## Download
-
-
-
-https://www.nuget.org/packages/EntityFramework.Filesystem/
-
-## Configure Database Context
-
-add database context to services
-
-```cs
-services.AddDbContext<ApplicationDbContext>(options => options.UseFileBaseContextDatabase("dbUser"));
-```
-
-or configure the database context itself
-
-```cs
-
-public static string DatabaseName = "my_local_db"; // Will create folder  \bin\my_local_db and tables.json files
-
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-{
-    optionsBuilder.UseFileBaseContextDatabase(databaseName: DatabaseName); 
-}
-```
 
 ## Configure Provider
-
+Powerful file based database provider for Entity Framework Core, easy 'Serverless' file system text file serialised ef db persistance
 ##### Named database 
 ```cs
  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -76,16 +66,12 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         optionsBuilder.UseFileBaseContextDatabase(databaseName: DatabaseName); 
     }
 ```
-
 ##### Custom location
 ```cs
 optionsBuilder.UseFileBaseContextDatabase(location: "C:\Temp\userDb");
 ```
 
 ## Unit testing
-
-Since 2.1.0 the FileBaseContext injects access to the file system through System.IO.Abstractions library. It allows the use of the provider in unit tests.
-
 If you need to use the provider in unit tests, you can change IFileSystem to MockFileSystem in OnConfiguring method in datacontext class.
 
 ```cs
@@ -103,29 +89,26 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     });
 }
 ```
-Please find example in the SimplePositiveTests class in the test project
+## History / Forks
 
-## New in 4.0.0
+File system Entity Frameworks Providers
 
-Since the 4.0.0 version the FileBaseContext supports persisting data in the CSV files.
-The CSV files are stored in the directory with the database name. 
-The CSV files are named by the entity name. 
-The first row in the CSV file is the header with the column names.
+### a. FileContext by DevMentor 
+https://github.com/pmizel/DevMentor.Context.FileContext
+Core 2+ 
 
-## ! Braking changes in 3.0.0 !
+### b. FileContextCore by morrisjdev
+https://github.com/morrisjdev/FileContextCore
+Offers Different serializer supported (XML, JSON, CSV, Excel) 
+Core 2/3 - last update Aug 2, 2020
 
-In 3.0.0 version the provider was changed to support numeric values without quotation marks.
+### c. FileBaseContext by dualbios
+https://github.com/dualbios/FileBaseContext
+FileBaseContext is a provider of Entity Framework Core 8 to store database information in files. 
+[Current developement: forked from this, adjusted namespace, tweaks, published nuget and added examples] 
+Core 8+ 
 
-```
-{
-    "IntProp": 42,
-    "LongProperty": 420,
-    "DateTime": "2023-12-26T19:28:08"
-}
-```
 
-The led to breaking changes in the provider. If you have used the provider before, you need to manualy update the database files. 
-The changes also affect on DateTime and DateTimeOffset values. The values are stored as string in the database.
-First run of the application could be slow becasuse a lot of System.Text.Json.JsonException will be provided.
-Performance be fixed after provider saves a database to files. While that the data will be stored in new formats.
-If you still have performance issues you need to manualy update the database files.
+
+
+
