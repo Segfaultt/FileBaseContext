@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ex4_ModelManytoMany", "FileBaseContect.EFTests\Ex4_ModeManytoMany\Ex4_ModelManytoMany.csproj", "{3E752531-9F43-41DA-BAB1-C9924AD6FBCE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ex1_ModelPerson", "FileBaseContect.EFTests\Ex1_ModelPerson\Ex1_ModelPerson.csproj", "{08AF6107-63AC-40DF-BC02-6828376DDC1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{3E752531-9F43-41DA-BAB1-C9924AD6FBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E752531-9F43-41DA-BAB1-C9924AD6FBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E752531-9F43-41DA-BAB1-C9924AD6FBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08AF6107-63AC-40DF-BC02-6828376DDC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08AF6107-63AC-40DF-BC02-6828376DDC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08AF6107-63AC-40DF-BC02-6828376DDC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08AF6107-63AC-40DF-BC02-6828376DDC1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

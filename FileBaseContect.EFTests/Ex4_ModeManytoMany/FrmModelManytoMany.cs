@@ -43,10 +43,29 @@ namespace Ex4_ModelManytoMany
                 List<Student> students = GenerateStudents(10);
                 List<Course> courses = GenerateCourse(10);
 
-                // Add generated data to the context
-                context.Students.AddRange(students);
-                context.Courses.AddRange(courses);
 
+                foreach (var s in students)
+                {
+                    context.Students.Add(s);
+                }
+
+
+                foreach (var c in courses)
+                {
+                    context.Courses.Add(c);
+                }
+                // This didnt work? Add generated data to the context
+               // context.Students.AddRange(students);
+               // context.Courses.AddRange(courses);
+
+                context.SaveChanges();
+            }
+
+            using (EFModelManytoMany context = new EFModelManytoMany())
+            {
+                List<Student> students = context.Students.ToList();
+                List<Course> courses = context.Courses.ToList();
+                txtDebug.Text += $"Loaded Students [{students.Count}] & Courses [{courses.Count}] ..Ok\r\n";
                 // Associate random many-to-many
                 Random random = new Random();
                 for (int i = 0; i < 30; i++)
@@ -57,12 +76,14 @@ namespace Ex4_ModelManytoMany
                     // Check if the enrollment already exists for student and course
                     if (!context.Enrollments.Any(e => e.Student.Id == student.Id && e.Course.Id == course.Id))
                     {
-                        // Joining table for many-to-many
+                        // Association / Joining table for many-to-many
                         Enrollment enrollment = new Enrollment();
                         enrollment.Student = student;   // Can be duplicates IRL
                         enrollment.Course = course;     // Can be duplicates IRL
                         context.Enrollments.Add(enrollment);
                         context.SaveChanges();
+                        txtDebug.Text += $"Enrolled Student : {student.FirstName} {student.LastName} to  Course [{course.Id}] {course.Title}..Ok\r\n";
+
                     }
                 }
 

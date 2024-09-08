@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.8" />
+    <PackageReference Include="Bogus" Version="35.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generated_PersonModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FileBaseContext\FileBaseContext.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PersonModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PersonModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PersonModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PersonModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
