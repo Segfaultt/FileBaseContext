@@ -58,7 +58,20 @@ public class JsonRowDataSerializer : IRowDataSerializer
                 keyValues[i] = columnValues[_keyColumns[i]];
 
             var key = (TKey)keyValueFactory.CreateFromKeyValues(keyValues);
-            result.Add(key, columnValues);
+
+            if (!result.ContainsKey(key))
+                result.Add(key, columnValues);
+            else
+            {
+                if (Debugger.IsAttached)
+                {
+                    Debug.WriteLine($"<SCHEMA ERROR>  Deserialize<TKey>(Stream...  Duplicate pKey :  Column [{columnValues}] Data '{rowData}' Duplicate pKey name [{key}] ?");
+                }
+                else
+                {
+                    throw new InvalidOperationException($"<SCHEMA ERROR>  Deserialize<TKey>(Stream....  Duplicate pKey  ");
+                }
+            }
         }
     }
 

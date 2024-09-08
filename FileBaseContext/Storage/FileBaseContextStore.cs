@@ -136,30 +136,11 @@ internal class FileBaseContextStore : IFileBaseContextStore
             foreach (var et in entityType.GetDerivedTypesInclusive().Where(et => !et.IsAbstract()))
             {
                 var table = EnsureTable(et);
-                var key = _useNameMatching ? (object)et.Name : et;
-
-                if (!_tables.ContainsKey(key))
-                {
-                    data.Add(new FileBaseContextTableSnapshot(et, table.SnapshotRows()));
-                }
-                else
-                {
-                    if (Debugger.IsAttached)
-                    {
-                       Debug.WriteLine($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate pKey name [{key}]");
-                    }
-                    else
-                    {
-                        throw new InvalidOperationException($"<SCHEMA ERROR> Entity Type '{et.Name}' Duplicate pKey name [{key}]");
-                    }
-                }
+                data.Add(new FileBaseContextTableSnapshot(et, table.SnapshotRows()));
             }
         }
-
         return data;
     }
-
-
 
     private static Dictionary<object, IFileBaseContextTable> CreateTables()
     {

@@ -23,6 +23,7 @@ namespace Ex1_ModelPerson
         private static string SchemaVersion = "1.0"; // Update this version when schema changes
         private static string VersionFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DatabaseName, "schema_version.txt");
 
+        private static int InitCount = 0;
 
         partial void CustomInit(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,7 +38,20 @@ namespace Ex1_ModelPerson
 
             if (!optionsBuilder.IsConfigured)
             {
-                Debug.WriteLine("Creating new options instance");
+                /*
+                An error occurred: An error was generated for warning 'Microsoft.EntityFrameworkCore.Infrastructure.ManyServiceProvidersCreatedWarning': 
+                
+                More than twenty 'IServiceProvider' instances have been created for internal use by Entity Framework. 
+                This is commonly caused by injection of a new singleton service instance into every DbContext instance. 
+                
+                For example, calling 'UseLoggerFactory' passing in a new instance each time--see https://go.microsoft.com/fwlink/?linkid=869049 for more details. 
+
+                This may lead to performance issues, consider reviewing calls on 'DbContextOptionsBuilder' that may require new service providers to be built. 
+                
+                This exception can be suppressed or logged by passing event ID 'CoreEventId.ManyServiceProvidersCreatedWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+
+                */
+                Debug.WriteLine($"Creating new options instance [{InitCount++}]");
 
                 if (Debugger.IsAttached)
                 {
@@ -46,16 +60,12 @@ namespace Ex1_ModelPerson
                     optionsBuilder.EnableDetailedErrors();
                 }
 
-                 string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DatabaseName);
-                optionsBuilder.UseFileBaseContextDatabase( location: dbPath); //databaseName: DatabaseName);
-                Debug.WriteLine($"optionsBuilder.IsConfigure [{optionsBuilder.IsConfigured}]");
-
-
+                 //string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DatabaseName);
+                optionsBuilder.UseFileBaseContextDatabase( databaseName: DatabaseName); //location: dbPath); //
+                Debug.WriteLine($"Configured optionsBuilder.IsConfigure [{optionsBuilder.IsConfigured}]");
             }
         }
       
-
-
         private bool HasSchemaChanged()
         {
             if (!File.Exists(VersionFilePath))
