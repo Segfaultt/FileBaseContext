@@ -1,6 +1,7 @@
 ﻿using FileBaseContext.Serializers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Diagnostics;
 using System.IO.Abstractions;
 using System.Text;
 
@@ -53,6 +54,7 @@ public class FileBaseContextFileManager : IFileBaseContextFileManager
         catch (Exception ex)
         when (ex is FileNotFoundException or DirectoryNotFoundException)
         {
+            Debug.WriteLine($"File or directory not found: {ex.Message.ToString()}");
         }
 
         return rows;
