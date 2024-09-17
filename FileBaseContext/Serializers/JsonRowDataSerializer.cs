@@ -34,16 +34,16 @@ public class JsonRowDataSerializer : IRowDataSerializer
 
     public string FileExtension => ".json";
 
-    public void Deserialize<TKey>(Stream stream, Dictionary<TKey, object[]> result)
+    public void Deserialize<TKey> (Stream stream, Dictionary<TKey, object[]> result)
     {
-        Debug.Assert(stream.Position == 0);
-        if (stream.Length == 0)
+        Debug.Assert (stream.Position==0);
+        if (stream.Length==0)
         {
             return;
         }
 
-        var rowsData = JsonSerializer.Deserialize<List<JsonRowData>>(stream, _jsonOptions);
-        if (rowsData == null)
+        var rowsData = JsonSerializer.Deserialize<List<JsonRowData>> (stream, _jsonOptions);
+        if (rowsData==null)
         {
             return;
         }
@@ -54,26 +54,43 @@ public class JsonRowDataSerializer : IRowDataSerializer
         {
             var columnValues = rowData.ColumnValues;
 
-            for (int i = 0; i < keyValues.Length; i++)
-                keyValues[i] = columnValues[_keyColumns[i]];
+            for (int i = 0; i<keyValues.Length; i++)
+                keyValues[i]=columnValues[_keyColumns[i]];
 
-            var key = (TKey)keyValueFactory.CreateFromKeyValues(keyValues);
 
-            if (!result.ContainsKey(key))
-                result.Add(key, columnValues);
+            TKey key;
+            if (keyValues.Length==1)
+            {
+                key=(TKey)keyValueFactory.CreateFromKeyValues (keyValues);
+            }
             else
             {
+                // Handle composite keys, e.g *-*
+                key=(TKey)keyValueFactory.CreateFromKeyValues (new List<object> { columnValues[0] });
+            }
+
+            if (!result.ContainsKey (key))
+            {
+                result.Add (key, columnValues);
+            }
+            else
+            {
+                var keyValuesString = string.Join (", ", keyValues.Select (k => k?.ToString ()??"null"));
+                var columnValuesString = string.Join (", ", columnValues.Select (c => c?.ToString ()??"null"));
+                var rowDataString = $"JsonRowData {{ ColumnValues = [{columnValuesString}] }}";
+
                 if (Debugger.IsAttached)
                 {
-                    Debug.WriteLine($"<SCHEMA ERROR>  Deserialize<TKey>(Stream...  Duplicate pKey :  Column [{columnValues}] Data '{rowData}' Duplicate pKey name [{key}] ?");
+                    Debug.WriteLine ($"<SCHEMA ERROR> Deserialize<TKey>(Stream... Duplicate pKey : Column [{columnValuesString}] Data '{rowDataString}' Duplicate pKey name [{keyValuesString}] ?");
                 }
                 else
                 {
-                    throw new InvalidOperationException($"<SCHEMA ERROR>  Deserialize<TKey>(Stream....  Duplicate pKey  ");
+                    throw new InvalidOperationException ($"<SCHEMA ERROR> Deserialize<TKey>(Stream... Duplicate pKey : Column [{columnValuesString}] Data '{rowDataString}' Duplicate pKey name [{keyValuesString}] ?");
                 }
             }
         }
     }
+
 
     public void Serialize<TKey>(Stream stream, IReadOnlyDictionary<TKey, object[]> source)
     {
