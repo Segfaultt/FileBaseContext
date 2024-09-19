@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Update;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
 namespace FileBaseContext.Storage;
@@ -46,7 +47,14 @@ public class FileBaseContextTable<TKey> : IFileBaseContextTable
             .Select(p => SnapshotValue(p, GetStructuralComparer(p), entry))
             .ToArray();
 
-        _rows.Add(CreateKey(entry), row);
+        TKey key = CreateKey(entry);
+        if (!_rows.ContainsKey(key))
+        {
+            Debug.WriteLine($"Successfully added key {key} to {_entityType} type db");
+            _rows.Add(key, row);
+        }
+        else
+            Debug.WriteLine($"Attempted to add key {key} to {_entityType} type db");
     }
 
     public void Load()
